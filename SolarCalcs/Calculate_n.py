@@ -3,11 +3,9 @@ import datetime
 import pytest
 
 def nth_day(year, month, day):
+	""" Find the day of the year """
+
 	mydate=datetime.date(year, month, day)
 	return mydate.strftime('%j')
 
-def test_answer():
-	assert nth_day(2019, 02, 12) == 43
 
-if __name__ == '__main__':
-	print test_answer()

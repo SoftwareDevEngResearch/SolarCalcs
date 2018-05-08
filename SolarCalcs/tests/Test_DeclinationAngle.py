@@ -1,6 +1,6 @@
 #Test the DeclinationAngle.py file
 
-import DeclinationAngle as ds
+from .. import DeclinationAngle as ds
 import pytest
 
 

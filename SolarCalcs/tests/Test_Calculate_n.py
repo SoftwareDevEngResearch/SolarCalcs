@@ -1,6 +1,6 @@
 #Test the Calculate_n.py file
 
-import Calculate_n as C
+from .. import Calculate_n as C
 import pytest
 
 #Basic test
