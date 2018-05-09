@@ -1,7 +1,7 @@
 #Testing set for the LocationComponents.py file
 
 import pytest
-#from .. import LocationComponents as lp
+from .. import LocationComponents as lp
 
 #Basic city tests. These tests ensure that latitude and longitudate values are be obtained from just the City and State
 a=lp.LocationComponents('Portland OR')
