@@ -17,6 +17,7 @@ class Solar_Time():
 		self.month = int(month)
 		self.year = int(year)
 
+
 		#Uses 24 hour time model
 		self.hour = int(hour)
 		self.minutes = int(minutes)
@@ -33,7 +34,7 @@ class Solar_Time():
 		"""ET is the equation of time. This accounts for the irregularity of the earth's motion around the sun. 
 		--Source: Principles of Solar Engineering, 3rd. Edition, by D. Yogi Goswami"""
 
-		return float(9.87)*math.sin(math.radians(2*float(self.B()))) - float(7.53)*math.cos(math.radians(float(self.B()))) - float(1.5)*math.sin(math.radians(float(self.B()))) #units = minutes
+		return (float(9.87)*math.sin(math.radians(2*float(self.B()))) - float(7.53)*math.cos(math.radians(float(self.B()))) - float(1.5)*math.sin(math.radians(float(self.B()))))*60 #units = seconds
 
 	def l_st(self):
 		"""Pulls the timezone information from LocationComponents.py then converts from the numeric timezone value
@@ -44,18 +45,27 @@ class Solar_Time():
 
 #This function is not returned the expected values. It likely has to do with the how time is delt with.
 
-	# def solar_time(self):
-	# 	"""Using the above functions, calculate the solar time for the given location"""
+	def solar_time(self):
+		"""Using the above functions, calculate the solar time for the given location"""
 
-	# 	#convert time into minutes
-	# 	convert_minutes = self.hour*60 +self.minutes + self.seconds/60
+		#Local Standard Time
+		LST = datetime.datetime(self.year, self.month, self.day, self.hour, self.minutes, self.seconds)
 
-	# 	solartime_minutes =  convert_minutes + self.ET() + (self.l_st() - LC.LocationComponents(self.address).longitude_value())*(4)
+		long_offset = (self.l_st() - LC.LocationComponents(self.address).longitude_value())*4*60 #units = seconds
 
-	# 	#Convert to normal time structures HH:MM:SS
-	# 	return str(datetime.timedelta(minutes = solartime_minutes))[:-3]
 
-	
+		solar_time = LST + datetime.timedelta(seconds = self.ET()) + datetime.timedelts(seconds = long_offset)
+
+		return solar_time
+
+
+#Function to account for day light savings, if applicable to location
+	def solar_time_daylightsavings(self):
+		return None
+
+if __name__ == '__main__':
+	a = Solar_Time('4536 153rd Ave SE Bellevue, WA 98006', 2018, 5, 14, 13, 30, 0)
+	print a.solar_time()
 
 
 
