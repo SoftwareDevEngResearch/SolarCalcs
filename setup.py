@@ -1,3 +1,11 @@
+#!/usr/bin/env python
+
+# Author: Nicole Guymer
+# Date: May, 16 2018
+# File: setup.py
+# Description: This file contains setup information to down the project through pip.
+
+
 try:  
     from setuptools import setup, find_packages
 except ImportError:

@@ -1,3 +1,12 @@
+#!/usr/bin/env python
+
+# Author: Nicole Guymer
+# Date: May, 16 2018
+# File: LocationComponents.py
+# Description: This file uses geopy to find the latitude and longitutde values, and time zones in decimal form for user given locations.
+# Note: Not all addresses or locations can be found using geopy.
+
+
 #Calculate the declination, zenith angle, hour angle, azimuth angle, altitude angle, and solar time
 
 #Import the necessary part of Geopy
@@ -30,6 +39,7 @@ class LocationComponents():
 
 		#Check if there is more than 1 result for the given location
 		locations = Nominatim().geocode(self.address, False)
+	
 
 		if len(locations) > 1:
 			print 'Please enter a more specific location. ie: City and State'
@@ -48,4 +58,4 @@ class LocationComponents():
 		return int(pytz.timezone(timezone_name).localize(datetime.datetime(2011,1,1)).strftime('%z'))/100
 
 #End class
- 
+
