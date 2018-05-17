@@ -1,4 +1,9 @@
-#Test the Calculate_n.py file
+#!/usr/bin/env python
+
+# Author: Nicole Guymer
+# Date: May, 16 2018
+# File: test_calculate_n.py
+# Description: Testing set for the Calculate_n.py file.
 
 from .. import Calculate_n as C
 import pytest

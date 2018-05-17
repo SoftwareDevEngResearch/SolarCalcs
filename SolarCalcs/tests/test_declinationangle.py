@@ -1,4 +1,9 @@
-#Test the DeclinationAngle.py file
+#!/usr/bin/env python
+
+# Author: Nicole Guymer
+# Date: May, 16 2018
+# File: test_declinationangle.py
+# Description: Testing set for the DeclinationAngle.py file.
 
 from .. import DeclinationAngle as ds
 import pytest
