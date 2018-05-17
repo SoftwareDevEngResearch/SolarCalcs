@@ -7,15 +7,10 @@
 # Note: Not all addresses or locations can be found using geopy.
 
 
-#Calculate the declination, zenith angle, hour angle, azimuth angle, altitude angle, and solar time
-
-#Import the necessary part of Geopy
 from geopy.geocoders import Nominatim
 from geopy import geocoders
 import datetime, pytz
 
-
-#Start class
 class LocationComponents():
 
 	def __init__(self, address):
@@ -56,6 +51,3 @@ class LocationComponents():
 
 		#Returns the numeric value of the timezone, ex: +0100
 		return int(pytz.timezone(timezone_name).localize(datetime.datetime(2011,1,1)).strftime('%z'))/100
-
-#End class
-

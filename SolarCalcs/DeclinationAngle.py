@@ -1,4 +1,10 @@
-#Calculate the declination angle
+#!/usr/bin/env python
+
+# Author: Nicole Guymer
+# Date: May, 16 2018
+# File: DelincationAngle.py
+# Description: Calculates the declination angle for the given date.
+# Note: Date is asked for in YY, MM, DD format
 
 import Calculate_n as n
 import math
