@@ -27,11 +27,19 @@ class Altitude_Angle():
 
 
 	def altitude(self):
-		return math.asin(math.radians ((math.sin(self.latitude) * math.sin(self.ds)) + (math.cos(self.latitude) * math.cos(self.ds) * math.cos(self.hs))) )
+		a = math.sin(math.radians(self.latitude)) * math.sin(math.radians(self.ds))
+		b = math.cos(math.radians(self.latitude)) * math.cos(math.radians(self.ds)) * math.cos(math.radians(self.hs))
+		c = a+b
+		d = math.asin(c)
+		return math.degrees(d) #units = degress
 
-	def altitude_daylightsavings(Self):
-		return math.asin(math.radians ((math.sin(self.latitude) * math.sin(self.ds)) + (math.cos(self.latitude) * math.cos(self.ds) * math.cos(self.hs_dls))) )
-
+	def altitude_daylightsavings(self):
+		a = math.sin(math.radians(self.latitude)) * math.sin(math.radians(self.ds))
+		b = math.cos(math.radians(self.latitude)) * math.cos(math.radians(self.ds)) * math.cos(math.radians(self.hs_dls))
+		c = a+b
+		d = math.asin(c)
+		return math.degrees(d) #units = degrees
+		
 if __name__ == '__main__':
 	a = Altitude_Angle('Nashville, TN', 2017, 8, 21, 13, 30, 00)
 	print a.altitude_daylightsavings()
