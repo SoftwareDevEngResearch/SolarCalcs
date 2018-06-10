@@ -7,12 +7,12 @@
 # Note: Date is in YY, MM, DD format
 
 import datetime
-import pytest
 
 def nth_day(year, month, day):
-	""" Find the day of the year """
-
+	""" Find the number day of the year """
 	mydate=datetime.date(year, month, day)
 	return mydate.strftime('%j')
+
+
 
 

@@ -24,9 +24,9 @@ class Angles_DayLightSavings():
 		self.hour = hour
 		self.minutes = minutes
 		self.seconds = seconds
-		self.latitude = LC.LocationComponents(self.address).latitude_value()
-		self.longitude = LC.LocationComponents(self.address).longitude_value()
-		self.n = n.nth_day(self.year, self.month, self.day)
+		self.latitude = float(LC.LocationComponents(self.address).latitude_value())
+		self.longitude = float(LC.LocationComponents(self.address).longitude_value())
+		self.n = float(n.nth_day(self.year, self.month, self.day))
 		self.time = datetime.time(self.hour , self.minutes, self.seconds)
 
 	def declination_angle(self):
@@ -61,14 +61,24 @@ class Angles_DayLightSavings():
 	def azimuth_angle(self):
 		div = math.cos(math.radians(self.declination_angle())) * (math.sin(math.radians(self.hour_angle())) / math.cos(math.radians(self.altitude_angle())))
 		return math.degrees(math.asin(div))
+
+	def all_angles(self):
+		#Create a file that holds all the values
+		filename = 'SolarCalcs_DayLightSavings_%(address)s_%(year)d_%(month)d_%(day)d_%(hour)d%(minutes)d%(seconds)d.txt' % {'address': self.address[:5], 'year': self.year, 'month' :self.month, 'day': self.day, 'hour':self.hour, 'minutes': self.minutes, 'seconds':self.seconds}
+		st = str(self.solar_time())
+		with open('%s' % filename , 'w') as f:
+			f.write('Nth Day of the Year = %f' % self.n)
+			f.write('\nLatitude = %f degrees' % self.latitude)
+			f.write('\nLongitude = %f degrees' %self.longitude)
+			f.write('\nSolar Time = %s' % st)
+			f.write('\nDeclination Angle = %f degrees' % self.declination_angle())
+			f.write('\nHour Angle = %f degrees' % self.hour_angle())
+			f.write('\nAltitude Angle = %f degrees' % self.altitude_angle())
+			f.write('\nZenith Angle = %f degrees' % self.zenith_angle())
+			f.write('\nAzimuth Angle = %f degrees\n' % self.azimuth_angle())
+
 if __name__ == '__main__':
 	a = Angles_DayLightSavings('Nashville, TN', 2017, 8, 21, 13, 30, 00)
-	print a.declination_angle()
-	print a.solar_time()
-	print a.hour_angle()
-	print a.altitude_angle()
-	print a.zenith_angle()
-	print a.azimuth_angle()
-
+	print a.all_angles()
 
 
