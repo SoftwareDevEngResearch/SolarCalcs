@@ -18,9 +18,9 @@ import datetime
 class Angles():
 	
 	def __init__(self, address, year, month, day, hour, minutes, seconds):
-	"""Define all the variables in terms of the class.
-	Bring in the nth_day value from Calculate_n.py.
-	Bring in the location values from LocationComponents.py."""
+		"""Define all the variables in terms of the class.
+		Bring in the nth_day value from Calculate_n.py.
+		Bring in the location values from LocationComponents.py."""
 		self.address = address
 		self.year = year
 		self.month = month
@@ -92,20 +92,6 @@ class Angles():
 			f.write('\nAltitude Angle = %f degrees' % self.altitude_angle())
 			f.write('\nZenith Angle = %f degrees' % self.zenith_angle())
 			f.write('\nAzimuth Angle = %f degrees\n' % self.azimuth_angle())
-
-
-
-
-if __name__ == '__main__':
-	a = Angles('Nashville, TN', 2017, 8, 21, 13, 30, 00)
-	print a.all_angles()
-
-	#print a.declination_angle()
-	#print a.solar_time()
-	#print a.hour_angle()
-	#print a.altitude_angle()
-	#print a.zenith_angle()
-	#print a.azimuth_angle()
 
 
 
