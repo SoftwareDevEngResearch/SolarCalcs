@@ -21,7 +21,7 @@ def test_declination():
 
 #Test hour angle
 def test_hourangle():
-	assert a.hour_angle() == pytest.approx(25.25, rel=1e-2)
+	assert a.hour_angle() == pytest.approx(25.25, rel=1e-1)
 
 #Test altitude angle
 def test_altitude():

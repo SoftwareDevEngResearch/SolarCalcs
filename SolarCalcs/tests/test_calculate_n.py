@@ -32,11 +32,6 @@ def test_day32():
 	with pytest.raises(ValueError):
 		C.nth_day(2018, 01, 32)
 
-def test_day-1():
-	"""Test that days less than zero can't be called."""
-	with pytest.raises(ValueError):
-		C.nth_Day(2020,04, -1)
-
 def test_day0():
 	"""Test that can't call the zeroth day"""
 	with pytest.raises(ValueError):
@@ -52,12 +47,7 @@ def test_format_month1():
 	"""Test 1 digit month value"""
 	assert C.nth_day(2018, 1, 31) == '031' #'1' instead of '01'
 
-def test_incorrect_format_month1():
-	"""Test 2 digit month value, should raise an error for months starting with 0."""
-	with pytest.raises(ValueError):
-		C.nth_day(2045, 08, 04) 
-
-def test_incorrect_format_month2():
+def test_incorrect_format_month():
 	with pytest.raises(ValueError):
 		C.nth_day(2018, 13, 31) #month number exceeding 12
 

@@ -5,11 +5,11 @@
 # File: test_Angles_DayLightSavings.py
 # Description: This file tests calculates done in the Angles.py file
 
-from .. import Angles as AN
+from .. import Angles_DayLightSavings as AS
 import pytest
 
 
-a = AN.Angles('Nashville, TN', 2017, 8, 21, 13, 30, 00)
+a = AS.Angles_DayLightSavings('Nashville, TN', 2017, 8, 21, 13, 30, 00)
 
 #Test declination angle
 def test_declination():
@@ -21,7 +21,7 @@ def test_declination():
 
 #Test hour angle
 def test_hourangle():
-	assert a.hour_angle() == pytest.approx(10.25, rel=1e-2)
+	assert a.hour_angle() == pytest.approx(10.25, rel=1e-1)
 
 #Test altitude angle
 def test_altitude():
