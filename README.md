@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1290030.svg)](https://doi.org/10.5281/zenodo.1290030)
 # SolarCalcs
 
 Overview:
@@ -14,17 +15,17 @@ License:
 How to Use:
  Currently, the code is setup to be run in the terminal. In the terminal, move to the SolarCalcs file and run the following command:
 
- 	python Angles.py Angles('[City, State]í , [year], [month] , [day], [hour], [minutes], [seconds]).all_angles()
+ 	python Angles.py Angles('[City, State]‚Äô , [year], [month] , [day], [hour], [minutes], [seconds]).all_angles()
 	
 	--or--
 
-	python Angles_DayLightSavings.py Angles_DayLightSavings('[City, State]í , [year], [month] , [day], [hour], [minutes] , [seconds]).all_angles()
+	python Angles_DayLightSavings.py Angles_DayLightSavings('[City, State]‚Äô , [year], [month] , [day], [hour], [minutes] , [seconds]).all_angles()
 
  Example: For Nashville, TN on August 21st, 2017 at 1:30pm during day light savings.
- python Angles_DayLightSavings.py Angles_DayLightSavings('Nashville, TNí , 2017, 8 , 21, 12, 30 , 00).all_angles()
+ python Angles_DayLightSavings.py Angles_DayLightSavings('Nashville, TN‚Äô , 2017, 8 , 21, 12, 30 , 00).all_angles()
 
 Variables Notes:
- Location: Works best as a ìCity, Stateî entry but can work as a full detailed address. Surround with quotations.
+ Location: Works best as a ‚ÄúCity, State‚Äù entry but can work as a full detailed address. Surround with quotations.
  Date: Year value should be 4 digits. Months should not start with zero (for May type 5 instead of 05). Day value should be 2 digits.
  Time: Uses 24hr format, requires values for hour, minutes, and seconds. Use 2 digits for each value (for 5:15pm type 17, 15, 00).
 
